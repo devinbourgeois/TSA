@@ -1,0 +1,9 @@
+import numpy as np
+import pandas as pd
+
+#flights test data file
+ftd = pd.read_csv('flights_test_size.csv')
+#fligths only from Atlanta
+ftd = ftd[ftd['ORIGIN_AIRPORT'] == 'ATL']
+ftd.reset_index(drop=True,inplace = True)
+ftd.to_excel('Atlanta_flights_test_size.xlsx',sheet_name='sheet1')
