@@ -1,0 +1,17 @@
+#Roberto Prieto 7/9/21 V1
+#flights data file
+fd = pd.read_csv('flights.csv')
+#flights only from Atlanta
+fd = fd[fd['ORIGIN_AIRPORT'] == 'ATL']
+fd.reset_index(drop=True,inplace = True)
+#filling in null delay values with 0.0
+fd['DEPARTURE_DELAY'].fillna(value=0.0,inplace = True)
+fd['ARRIVAL_DELAY'].fillna(value=0.0,inplace = True)
+fd['AIR_SYSTEM_DELAY'].fillna(value=0.0,inplace = True)
+fd['SECURITY_DELAY'].fillna(value=0.0,inplace = True)
+fd['AIRLINE_DELAY'].fillna(value=0.0,inplace = True)
+fd['LATE_AIRCRAFT_DELAY'].fillna(value=0.0,inplace = True)
+fd['WEATHER_DELAY'].fillna(value=0.0,inplace = True)
+#including mean delay values in the titles of the delay columns
+fd.columns = ('YEAR','MONTH','DAY','DAY_OF_WEEK','AIRLINE','FLIGHT_NUMBER','TAIL_NUMBER','ORIGIN_AIRPORT','DESTINATION_AIRPORT','SCHEDULED_DEPARTURE','DEPARTURE_TIME','DEPARTURE_DELAY(Mean:'+str(fd['DEPARTURE_DELAY'].mean())+')','TAXI_OUT','WHEELS_OFF','SCHEDULED_TIME','AIR_TIME','DISTANCE','WHEELS_ON','TAXI_IN','SCHEDULED_ARRIVAL','ARRIVAL_TIME','ARRIVAL_DELAY(Mean:'+str(fd['ARRIVAL_DELAY'].mean())+')','DIVERTED','CANCELLED','CANCELLATION_REASON','AIR_SYSTEM_DELAY(Mean:'+str(fd['AIR_SYSTEM_DELAY'].mean())+')','SECURITY_DELAY(Mean:'+str(fd['SECURITY_DELAY'].mean())+')','AIRLINE_DELAY(Mean:'+str(fd['AIRLINE_DELAY'].mean())+')','LATE_AIRCRAFT_DELAY(Mean:'+str(fd['LATE_AIRCRAFT_DELAY'].mean())+')','WEATHER_DELAY(Mean:'+str(fd['WEATHER_DELAY'].mean())+')')
+fd.to_excel('Atlanta_flights.xlsx',sheet_name='sheet1')
