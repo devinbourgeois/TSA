@@ -6,4 +6,5 @@ flightsData=pd.read_csv('C:\\NSLC\\MajorSim\\flights.csv')
 flightsData=flightsData[flightsData['Z']==True]
 #sorts for only rows with value 'Z' in it (indicating whether or not the flight came from or left from ATL)
 flightsData.to_csv('atlFlights.csv')
+#saves the (edited) data to a .csv file
 
