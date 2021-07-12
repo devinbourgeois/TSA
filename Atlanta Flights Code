@@ -1,4 +1,4 @@
-#Roberto Prieto 7/9/21 V1
+#Roberto Prieto and Christan Hirschey 7/11/21 V2
 #flights data file
 fd = pd.read_csv('flights.csv')
 #flights only from Atlanta
