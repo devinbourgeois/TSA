@@ -2,36 +2,22 @@ import numpy as np
 import pandas as pd
 
 daily_profit = pd.read_excel('ATL_Daily_Profit.xlsx')
+#reads the data
 
 daily_profit.drop('INBOUND FLIGHTS',inplace=True,axis=1)
 daily_profit.drop('OUTBOUND FLIGHTS',inplace=True,axis=1)
+#drops the inbound and outbound flight columns
 
 daily_profit.loc[[272,273,274,275,276,277,278,279,280]]
-
-daily_profit.drop([273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290], inplace=True,axis=0)
-
 daily_profit.loc[[272,291,292,293,294,295,296,297,298,299,300,301,302,303,304]]
+#locates null values
 
 daily_profit.drop([291,292,293,294,295,296,297,298,299,300,301,302,303],inplace=True,axis=0)
-
-daily_profit.reset_index
+daily_profit.drop([273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290], inplace=True,axis=0)
+#deletes null values
 
 daily_profit.reset_index(inplace=True)
-
-daily_profit
-
-daily_profit.to_csv('CleanedATLProfits.csv')
-
-daily_profit.drop(['index'],inplace=True,axis=1)
-
-daily_profit.drop(['Unnamed: 0'], inplace=True,axis=1)
+#resetting index numbers
 
 daily_profit.to_csv("CleanedATLProfits1.csv")
-
-daily_profit['AIR_SYSTEM_DELAY_COST'].mean()
-
-daily_profit['AIRLINE_DELAY_REVENUE'].mean()
-
-daily_profit['GATE_REVENUE'].mean()
-
-daily_profit['PROFIT'].mean()
+#saving cleaned profits to .csv
