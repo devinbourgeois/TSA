@@ -1,27 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import numpy as np
 import pandas as pd
 
-
-# In[43]:
-
-
 flightsData=pd.read_csv('C:\\NSLC\\MajorSim\\flights.csv')
-
-
-# In[41]:
-
-
+#reads the data
 flightsData=flightsData[flightsData['Z']==True]
-
-
-# In[42]:
-
-
+#sorts for only rows with value 'Z' in it (indicating whether or not the flight came from or left from ATL)
 flightsData.to_csv('atlFlights.csv')
 
